@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.Web", "PayrollSystemDemo.Web\PayrollSystemDemo.Web.csproj", "{3596E07F-42D8-4819-BA92-9F19096750BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.Data", "PayrollSystemDemo.Data\PayrollSystemDemo.Data.csproj", "{0FD4591D-6DB1-4DE1-8969-7C0CA881077F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.Repo", "PayrollSystemDemo.Repo\PayrollSystemDemo.Repo.csproj", "{46218865-94B9-4F5D-8C15-AA14299DA586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.Service", "PayrollSystemDemo.Service\PayrollSystemDemo.Service.csproj", "{21FF8793-7A8D-4028-962B-BBAF740FEBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.UnitTest", "PayrollSystemDemo.UnitTests\PayrollSystemDemo.UnitTest.csproj", "{1F6E6379-0FC3-452F-B7EE-91D1D15A52F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.IntegrationTest", "PayrollSystemDemo.IntegrationTests\PayrollSystemDemo.IntegrationTest.csproj", "{876B1979-F103-403E-BD65-E1374A5B687F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemDemo.Common", "PayrollSystemDemo.Common\PayrollSystemDemo.Common.csproj", "{9FAB66C4-1EB5-4B5C-AF31-AF5595A5B742}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3596E07F-42D8-4819-BA92-9F19096750BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3596E07F-42D8-4819-BA92-9F19096750BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3596E07F-42D8-4819-BA92-9F19096750BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3596E07F-42D8-4819-BA92-9F19096750BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD4591D-6DB1-4DE1-8969-7C0CA881077F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD4591D-6DB1-4DE1-8969-7C0CA881077F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD4591D-6DB1-4DE1-8969-7C0CA881077F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD4591D-6DB1-4DE1-8969-7C0CA881077F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46218865-94B9-4F5D-8C15-AA14299DA586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46218865-94B9-4F5D-8C15-AA14299DA586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46218865-94B9-4F5D-8C15-AA14299DA586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46218865-94B9-4F5D-8C15-AA14299DA586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21FF8793-7A8D-4028-962B-BBAF740FEBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21FF8793-7A8D-4028-962B-BBAF740FEBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21FF8793-7A8D-4028-962B-BBAF740FEBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21FF8793-7A8D-4028-962B-BBAF740FEBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F6E6379-0FC3-452F-B7EE-91D1D15A52F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F6E6379-0FC3-452F-B7EE-91D1D15A52F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F6E6379-0FC3-452F-B7EE-91D1D15A52F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F6E6379-0FC3-452F-B7EE-91D1D15A52F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876B1979-F103-403E-BD65-E1374A5B687F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876B1979-F103-403E-BD65-E1374A5B687F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876B1979-F103-403E-BD65-E1374A5B687F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876B1979-F103-403E-BD65-E1374A5B687F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAB66C4-1EB5-4B5C-AF31-AF5595A5B742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FAB66C4-1EB5-4B5C-AF31-AF5595A5B742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FAB66C4-1EB5-4B5C-AF31-AF5595A5B742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FAB66C4-1EB5-4B5C-AF31-AF5595A5B742}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

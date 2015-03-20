@@ -1,0 +1,95 @@
+﻿@model IEnumerable<PayrollSystemDemo.Data.Models.Employee>
+
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="employeeTable" class="table table-hover table-condensed table-striped">
+    <thead class="text-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                Dependents
+            </th>
+            <th>
+                Employee Discount
+            </th>
+            <th>
+                Employee Benefits Costs
+            </th>
+            <th>
+                Family Benefits Costs
+            </th>
+            <th>
+                <mark>Total Costs Preview</mark>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var employee = item;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Dependents.Count)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Discount.DiscountTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.BenefitCost.BenefitCostType.BenefitCostAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.FamilyBenefitsCosts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.TotalCostsPreview)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.DateCreated)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = employee.EmployeeId }) |
+                    @Html.ActionLink("Details", "Details", new { id = employee.EmployeeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = employee.EmployeeId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+
+    @*ordering by table column*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#employeeTable').DataTable({
+                //"order": [[1, "desc"]] Starts at 0.. 1.. 2
+            });
+        });
+    </script>
+}

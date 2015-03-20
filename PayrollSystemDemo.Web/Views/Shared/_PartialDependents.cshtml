@@ -1,0 +1,79 @@
+﻿@model PayrollSystemDemo.Web.Models.EmployeeDependentViewModel
+
+@{
+    ViewBag.Title = "Dependents";
+}
+<p>
+    @Html.ActionLink("Add Dependent", "Add", "Dependents", new { id = Model.Employee.EmployeeId }, null)
+</p>
+
+@if (Model.Employee.Dependents.Count > 0)
+{
+    <h4>Dependents</h4>
+
+    <table id="partialDependentsTable" class="table table-hover table-condensed table-striped">
+        <thead class="text-primary">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dependent.DependentType.DependentTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dependent.Discount.DiscountTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dependent.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dependent.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dependent.DateCreated)
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Employee.Dependents)
+            {
+                var employeeDependent = item;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => employeeDependent.DependentType.DependentTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => employeeDependent.Discount.DiscountTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => employeeDependent.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => employeeDependent.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => employeeDependent.DateCreated)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Dependents", new { id = employeeDependent.DependentId }, null) |
+                        @Html.ActionLink("Details", "Details", "Dependents", new { id = employeeDependent.DependentId }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Dependents", new { id = employeeDependent.DependentId }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+    @section Scripts {
+        @*ordering by table column*@
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#partialDependentsTable').DataTable({
+                    //"order": [[1, "desc"]] Starts at 0.. 1.. 2
+                });
+            });
+        </script>
+    }

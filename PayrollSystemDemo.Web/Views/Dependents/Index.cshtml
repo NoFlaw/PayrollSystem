@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PayrollSystemDemo.Data.Models.Dependent>
+
+@{
+    ViewBag.Title = "Dependents";
+}
+
+<h2>Dependents</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="dependentTable" class="table table-hover table-condensed table-striped">
+    <thead class="text-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DependentType.DependentTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount.DiscountTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            var dependent = item;
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => dependent.DependentType.DependentTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dependent.Discount.DiscountTitle)
+                </td>
+                <td>
+                    @Html.ActionLink(dependent.Employee.FullName, "Edit", "Employees", new { id = dependent.Employee.EmployeeId }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dependent.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dependent.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dependent.DateCreated)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DependentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.DependentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DependentId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    @*ordering by table column*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dependentTable').DataTable({
+                //"order": [[1, "desc"]] Starts at 0.. 1.. 2
+            });
+        });
+    </script>
+}

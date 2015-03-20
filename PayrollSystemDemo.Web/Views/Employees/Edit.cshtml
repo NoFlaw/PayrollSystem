@@ -1,0 +1,106 @@
+﻿@model PayrollSystemDemo.Web.Models.EmployeeDependentViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Employee.EmployeeId)
+        @Html.HiddenFor(model => model.Employee.DiscountId)
+        @Html.HiddenFor(model => model.Employee.SalaryId)
+        @Html.HiddenFor(model => model.Employee.BenefitCostId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Employee.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Employee.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Employee.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Employee.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.SalaryId, "SalaryRate", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SalaryId", null, htmlAttributes: new { @class = "form-control " })
+                @Html.ValidationMessageFor(model => model.Employee.SalaryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.Discount.DiscountTitle, "Discount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="@Model.Employee.Discount.DiscountTitle" readonly>
+                @Html.ValidationMessageFor(model => model.Employee.DiscountId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.BenefitCostId, "Employee Benefit Costs", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="@Model.Employee.BenefitCost.BenefitCostType.BenefitCostAmountFormated" readonly>
+                @Html.ValidationMessageFor(model => model.Employee.BenefitCostId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee.FamilyBenefitsCosts, "Family Benefits Costs", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="@Model.Employee.FamilyBenefitsCosts" readonly>
+                @Html.ValidationMessageFor(model => model.Employee.FamilyBenefitsCosts, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <mark>@Html.LabelFor(model => model.Employee.TotalCostsPreview, "Total Costs Preview", htmlAttributes: new { @class = "control-label col-md-2", @style = "background-color: yellow" })</mark>
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="@Model.Employee.TotalCostsPreview" readonly>
+                @Html.ValidationMessageFor(model => model.Employee.TotalCostsPreview, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+                @Html.LabelFor(model => model.Employee.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Employee.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Employee.DateCreated, "", new { @class = "text-danger" })
+                </div>
+            </div> 
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        <hr />
+
+        @Html.Partial("_PartialDependents")
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
