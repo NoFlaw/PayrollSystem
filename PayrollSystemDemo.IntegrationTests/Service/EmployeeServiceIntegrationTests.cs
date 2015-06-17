@@ -70,7 +70,6 @@ namespace PayrollSystemDemo.IntegrationTests.Service
     [Category("EmployeeServiceTests.Integration")]
     public class when_saving_employee_using_employee_service
     {
-       //Todo: Declare variables needed
         //Todo: Declare variables needed
         private Employee _employee;
         private IUnitOfWork _unitOfWork;

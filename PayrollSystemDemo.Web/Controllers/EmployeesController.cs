@@ -9,9 +9,9 @@ using PayrollSystemDemo.Web.Models;
 
 namespace PayrollSystemDemo.Web.Controllers
 {
+    //Todo: Clean this up first - http://stackoverflow.com/questions/10039006/mvc-dropdownlist-selectedvalue-not-displaying-correctly
     public class EmployeesController : Controller
     {
-        //private readonly PayrollContext _db = new PayrollContext();
         private readonly IEmployeeService _employeeService;
         private readonly IBenefitCostService _benefitCostService;
         private readonly ISalaryService _salaryService;

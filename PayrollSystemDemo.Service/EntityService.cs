@@ -48,11 +48,10 @@ namespace PayrollSystemDemo.Service
             }
             catch (Exception ex)
             {
-                //Log error with elmah
-                var message = ex.Message;
+                //Todo: Log some error message
+                var message = ex.InnerException;
+                return false;
             }
-            
-            return false;
         }
 
         public virtual IEnumerable<T> GetAll()

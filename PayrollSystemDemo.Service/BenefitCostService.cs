@@ -10,16 +10,13 @@ namespace PayrollSystemDemo.Service
     public class BenefitCostService : EntityService<BenefitCost>, IBenefitCostService
     {
         private readonly IRepository<BenefitCost> _benefitCostRepository;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IBenefitCostTypeService _benefitCostTypeService;
 
         public BenefitCostService(IUnitOfWork unitOfWork, IRepository<BenefitCost> benefitCostRepository, IBenefitCostTypeService benefitCostTypeService)
             : base(unitOfWork, benefitCostRepository)
         {
-            _unitOfWork = unitOfWork;
-            _benefitCostRepository = benefitCostRepository;
             _benefitCostTypeService = benefitCostTypeService;
-            _benefitCostRepository = _unitOfWork.GetRepository<BenefitCost>();
+            _benefitCostRepository = unitOfWork.GetRepository<BenefitCost>();
         }
 
         public BenefitCost GetBenefitCostById(int id)

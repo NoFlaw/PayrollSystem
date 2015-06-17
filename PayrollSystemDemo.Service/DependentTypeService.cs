@@ -12,7 +12,6 @@ namespace PayrollSystemDemo.Service
         public DependentTypeService(IUnitOfWork unitOfWork, IRepository<DependentType> dependentTypeRepository)
             : base(unitOfWork, dependentTypeRepository)
         {
-            _dependentTypeRepository = dependentTypeRepository;
             _dependentTypeRepository = unitOfWork.GetRepository<DependentType>();
         }
     }

@@ -8,9 +8,6 @@ namespace PayrollSystemDemo.Web
     {
         protected void Application_Start()
         {
-            //Creates Database & Seeds data
-            //Database.SetInitializer<PayrollContext>(new PayrollDbInitializer());
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -12,7 +12,6 @@ namespace PayrollSystemDemo.Service
         public DiscountService(IUnitOfWork unitOfWork, IRepository<Discount> discountRepository)
             : base(unitOfWork, discountRepository)
         {
-            _discountRepository = discountRepository;
             _discountRepository = unitOfWork.GetRepository<Discount>();
         }
     }

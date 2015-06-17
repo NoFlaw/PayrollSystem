@@ -16,7 +16,6 @@ namespace PayrollSystemDemo.Service
             : base(unitOfWork, employeeRepository)
         {
             _unitOfWork = unitOfWork;
-            _employeeRepository = employeeRepository;
             _employeeRepository = _unitOfWork.GetRepository<Employee>();
         }
 

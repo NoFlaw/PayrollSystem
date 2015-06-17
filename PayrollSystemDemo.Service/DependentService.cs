@@ -15,14 +15,21 @@ namespace PayrollSystemDemo.Service
         public DependentService(IUnitOfWork unitOfWork, IRepository<Dependent> dependentRepository, IDependentTypeService dependentTypeService)
             : base(unitOfWork, dependentRepository)
         {
-            _dependentRepository = dependentRepository;
             _dependentTypeService = dependentTypeService;
             _dependentRepository = unitOfWork.GetRepository<Dependent>();
         }
 
         public Dependent GetDependentById(int id)
         {
-            return _dependentRepository.GetById(id);
+            try
+            {
+                return _dependentRepository.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw new NotSupportedException(string.Format("Unable to retrieve the dependent by the provided ID: {0}, Error: {1}", id, ex.InnerException));
+            }
+            
         }
 
         public IEnumerable<DependentType> GetAllDependentTypes()

@@ -9,14 +9,11 @@ namespace PayrollSystemDemo.Service
     public class BenefitCostTypeService : EntityService<BenefitCostType>, IBenefitCostTypeService
     {
         private readonly IRepository<BenefitCostType> _benefitCostTypeRepository;
-        private readonly IUnitOfWork _unitOfWork;
 
         public BenefitCostTypeService(IUnitOfWork unitOfWork, IRepository<BenefitCostType> benefitCostTypeRepository)
             : base(unitOfWork, benefitCostTypeRepository)
         {
-            _unitOfWork = unitOfWork;
-            _benefitCostTypeRepository = benefitCostTypeRepository;
-            _benefitCostTypeRepository = _unitOfWork.GetRepository<BenefitCostType>();
+            _benefitCostTypeRepository = unitOfWork.GetRepository<BenefitCostType>();
         }
 
         public BenefitCostType GetBenefitCostTypeById(int id)
@@ -27,7 +24,7 @@ namespace PayrollSystemDemo.Service
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new NotSupportedException(string.Format("Unable to retrieve the provided ID: {0}, Error: {1}", id, ex.InnerException));
             }
         }
 

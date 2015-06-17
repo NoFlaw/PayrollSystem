@@ -12,7 +12,6 @@ namespace PayrollSystemDemo.Service
         public SalaryService(IUnitOfWork unitOfWork, IRepository<Salary> salaryRepository)
             : base(unitOfWork, salaryRepository)
         {
-            _salaryRepository = salaryRepository;
             _salaryRepository = unitOfWork.GetRepository<Salary>();
         }
     }
